@@ -27,9 +27,32 @@ export default function Header() {
             <li><a class="dropdown-item" href="#">Something else here</a></li>
           </ul>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" >Disabled</a>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Mobiles
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">IPhone</a></li>
+            <li><a class="dropdown-item" href="#">Samsung</a></li>
+            <li><a class="dropdown-item" href="#">OnePlus</a></li>
+            <li><a class="dropdown-item" href="#">Xiaomi</a></li>
+            <li><a class="dropdown-item" href="#">Oppo</a></li>
+            <li><a class="dropdown-item" href="#">Vivo</a></li>
+            <li><hr class="dropdown-divider"></hr></li>
+          </ul>
         </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Orders
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Completed</a></li>
+            <li><a class="dropdown-item" href="#">current</a></li>
+            <li><hr class="dropdown-divider"></hr></li>
+          </ul>
+        </li>
+        
       </ul>
       <form class="d-flex" role="search">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>

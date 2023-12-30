@@ -2,6 +2,8 @@ import React from "react";
 
 export default function Footer() {
   return (
+
+    
     <nav class="navbar bg-body-tertiary">
       <div class="container-fluid">
         <div className="container">
