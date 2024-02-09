@@ -6,7 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.review_api.entity.Shippers;
+import com.example.siddhimobiles.entity.Shippers;
 import com.review_api.repository.ShippersRepository;
 
 @Service

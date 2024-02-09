@@ -1,8 +1,9 @@
-package com.review_api.entity;
+package com.example.siddhimobiles.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity

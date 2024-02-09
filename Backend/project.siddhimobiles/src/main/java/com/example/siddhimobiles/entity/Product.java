@@ -1,8 +1,16 @@
-package com.review_api.entity;
+package com.example.siddhimobiles.entity;
+
+import java.util.Arrays;
+import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.Lob;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
@@ -15,6 +23,10 @@ public class Product {
 	
 	@Column(name="product_name")
 	private String productName;
+	
+	@Lob
+	@Column(name="product_img",columnDefinition = "BLOB")
+	private byte[] productImg;
 	
 	@Column(name="product_model")
 	private String productModel;
@@ -40,23 +52,33 @@ public class Product {
 	@Column(name="Current_Order")
 	private String CurrOrderId;
 	
-	@Column(name="product_name")
-	private byte productImage;
+	@Lob
+	@Column(name="product_Image",columnDefinition = "BLOB")
+	private byte[] productImage;
 	
 	@OneToOne
+	@JoinColumn(name="category_id")
 	private Category category;
+	@ManyToOne
+	@JoinColumn(name="Supplier_ID")
+	private	Suppliers supplierId;
+	
+	
 
 	
 	public Product() {
 	}
 
 
-	public Product(String productId, String productName, String productModel, int quantity, double price,
-			String avaliableColor, double discount, int unitInStock, int unitOnOrder, String currOrderId,
-			byte productImage, Category category) {
+
+
+	public Product(String productId, String productName, byte[] productImg, String productModel, int quantity,
+			double price, String avaliableColor, double discount, int unitInStock, int unitOnOrder, String currOrderId,
+			byte[] productImage, Category category, Suppliers supplierId) {
 		super();
 		this.productId = productId;
 		this.productName = productName;
+		this.productImg = productImg;
 		this.productModel = productModel;
 		this.quantity = quantity;
 		this.price = price;
@@ -67,7 +89,10 @@ public class Product {
 		CurrOrderId = currOrderId;
 		this.productImage = productImage;
 		this.category = category;
+		this.supplierId = supplierId;
 	}
+
+
 
 
 	public String getProductId() {
@@ -75,9 +100,13 @@ public class Product {
 	}
 
 
+
+
 	public void setProductId(String productId) {
 		this.productId = productId;
 	}
+
+
 
 
 	public String getProductName() {
@@ -85,9 +114,27 @@ public class Product {
 	}
 
 
+
+
 	public void setProductName(String productName) {
 		this.productName = productName;
 	}
+
+
+
+
+	public byte[] getProductImg() {
+		return productImg;
+	}
+
+
+
+
+	public void setProductImg(byte[] productImg) {
+		this.productImg = productImg;
+	}
+
+
 
 
 	public String getProductModel() {
@@ -95,9 +142,13 @@ public class Product {
 	}
 
 
+
+
 	public void setProductModel(String productModel) {
 		this.productModel = productModel;
 	}
+
+
 
 
 	public int getQuantity() {
@@ -105,9 +156,13 @@ public class Product {
 	}
 
 
+
+
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
+
+
 
 
 	public double getPrice() {
@@ -115,9 +170,13 @@ public class Product {
 	}
 
 
+
+
 	public void setPrice(double price) {
 		this.price = price;
 	}
+
+
 
 
 	public String getAvaliableColor() {
@@ -125,9 +184,13 @@ public class Product {
 	}
 
 
+
+
 	public void setAvaliableColor(String avaliableColor) {
 		this.avaliableColor = avaliableColor;
 	}
+
+
 
 
 	public double getDiscount() {
@@ -135,9 +198,13 @@ public class Product {
 	}
 
 
+
+
 	public void setDiscount(double discount) {
 		this.discount = discount;
 	}
+
+
 
 
 	public int getUnitInStock() {
@@ -145,9 +212,13 @@ public class Product {
 	}
 
 
+
+
 	public void setUnitInStock(int unitInStock) {
 		this.unitInStock = unitInStock;
 	}
+
+
 
 
 	public int getUnitOnOrder() {
@@ -155,9 +226,13 @@ public class Product {
 	}
 
 
+
+
 	public void setUnitOnOrder(int unitOnOrder) {
 		this.unitOnOrder = unitOnOrder;
 	}
+
+
 
 
 	public String getCurrOrderId() {
@@ -165,19 +240,27 @@ public class Product {
 	}
 
 
+
+
 	public void setCurrOrderId(String currOrderId) {
 		CurrOrderId = currOrderId;
 	}
 
 
-	public byte getProductImage() {
+
+
+	public byte[] getProductImage() {
 		return productImage;
 	}
 
 
-	public void setProductImage(byte productImage) {
+
+
+	public void setProductImage(byte[] productImage) {
 		this.productImage = productImage;
 	}
+
+
 
 
 	public Category getCategory() {
@@ -185,23 +268,36 @@ public class Product {
 	}
 
 
+
+
 	public void setCategory(Category category) {
 		this.category = category;
 	}
 
 
+
+
+	public Suppliers getSupplierId() {
+		return supplierId;
+	}
+
+
+
+
+	public void setSupplierId(Suppliers supplierId) {
+		this.supplierId = supplierId;
+	}
+
+
+
+
 	@Override
 	public String toString() {
-		return "Product [productId=" + productId + ", productName=" + productName + ", productModel=" + productModel
-				+ ", quantity=" + quantity + ", price=" + price + ", avaliableColor=" + avaliableColor + ", discount="
-				+ discount + ", unitInStock=" + unitInStock + ", unitOnOrder=" + unitOnOrder + ", CurrOrderId="
-				+ CurrOrderId + ", productImage=" + productImage + ", category=" + category + "]";
+		return "Product [productId=" + productId + ", productName=" + productName + ", productImg="
+				+ Arrays.toString(productImg) + ", productModel=" + productModel + ", quantity=" + quantity + ", price="
+				+ price + ", avaliableColor=" + avaliableColor + ", discount=" + discount + ", unitInStock="
+				+ unitInStock + ", unitOnOrder=" + unitOnOrder + ", CurrOrderId=" + CurrOrderId + ", productImage="
+				+ Arrays.toString(productImage) + ", category=" + category + ", supplierId=" + supplierId + "]";
 	}
 	
-	
-	
-	
-	
-	
-
 }

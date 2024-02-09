@@ -10,10 +10,10 @@ import SignUp from './components/SignUp';
 function App() {
   return (
     <>
-    <Header></Header>
+    {/* <Header></Header> */}
    
-    
-     <Footer/>
+    <SignIn></SignIn>
+     {/* <Footer/> */}
       
     </>
   );

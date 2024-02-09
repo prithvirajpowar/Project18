@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.review_api.entity.Orders;
+import com.example.siddhimobiles.entity.Orders;
 import com.review_api.service.OrderServices;
 
 

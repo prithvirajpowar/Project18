@@ -7,8 +7,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.review_api.entity.Employee;
-import com.review_api.entity.Orders;
+import com.example.siddhimobiles.entity.Employee;
+import com.example.siddhimobiles.entity.Orders;
 import com.review_api.repository.EmployeeRepository;
 
 

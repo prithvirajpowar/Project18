@@ -1,8 +1,10 @@
-package com.review_api.entity;
+package com.example.siddhimobiles.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -17,6 +19,9 @@ public class Shippers {
 	
 	@Column(name="Shipper_Phone")
 	private String shipperPhone;
+	
+	@ManyToOne
+	private Orders orderId;
 	
 	public Shippers() {
 	}

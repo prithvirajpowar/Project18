@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.util.Optionals;
 import org.springframework.stereotype.Service;
 
-import com.review_api.entity.Review;
+import com.example.siddhimobiles.entity.Review;
 import com.review_api.repository.ReviewRepositpory;
 
 @Service

@@ -2,7 +2,7 @@ package com.review_api.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.review_api.entity.Category;
+import com.example.siddhimobiles.entity.Category;
 
 public interface CategoryRepository extends JpaRepository<Category, Integer> {
 

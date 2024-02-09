@@ -1,8 +1,12 @@
-package com.review_api.entity;
+package com.example.siddhimobiles.entity;
+
+import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
@@ -29,13 +33,18 @@ public class Shops {
 	private String billingAddress;
 	
 	@OneToOne
-	private Review review;
+	@JoinColumn(name="reviewId")
+	private Review reviewId;
+	
+	@OneToMany
+	@JoinColumn(name="enquiry_id")
+	private List<Enquiry> enquiry;
 
 	public Shops() {
 	}
 
 	public Shops(String shopId, String shopName, String ownerName, String shopAddress, String billingType,
-			String billingAddress, Review review) {
+			String billingAddress, Review reviewId, List<Enquiry> enquiry) {
 		super();
 		this.shopId = shopId;
 		this.shopName = shopName;
@@ -43,7 +52,8 @@ public class Shops {
 		this.shopAddress = shopAddress;
 		this.billingType = billingType;
 		this.billingAddress = billingAddress;
-		this.review = review;
+		this.reviewId = reviewId;
+		this.enquiry = enquiry;
 	}
 
 	public String getShopId() {
@@ -94,27 +104,28 @@ public class Shops {
 		this.billingAddress = billingAddress;
 	}
 
-	public Review getReview() {
-		return review;
+	public Review getReviewId() {
+		return reviewId;
 	}
 
-	public void setReview(Review review) {
-		this.review = review;
+	public void setReviewId(Review reviewId) {
+		this.reviewId = reviewId;
+	}
+
+	public List<Enquiry> getEnquiry() {
+		return enquiry;
+	}
+
+	public void setEnquiry(List<Enquiry> enquiry) {
+		this.enquiry = enquiry;
 	}
 
 	@Override
 	public String toString() {
 		return "Shops [shopId=" + shopId + ", shopName=" + shopName + ", ownerName=" + ownerName + ", shopAddress="
-				+ shopAddress + ", billingType=" + billingType + ", billingAddress=" + billingAddress + ", review="
-				+ review + "]";
+				+ shopAddress + ", billingType=" + billingType + ", billingAddress=" + billingAddress + ", reviewId="
+				+ reviewId + ", enquiry=" + enquiry + "]";
 	}
-	
-	
-
 
 	
-
-	
-	
-
 }

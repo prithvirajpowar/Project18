@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.review_api.entity.Payment;
+import com.example.siddhimobiles.entity.Payment;
 import com.review_api.service.PaymentServices;
 
 @RestController

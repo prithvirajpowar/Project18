@@ -6,7 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.review_api.entity.Category;
+import com.example.siddhimobiles.entity.Category;
 import com.review_api.repository.CategoryRepository;
 @Service
 public class CategoryServices {
