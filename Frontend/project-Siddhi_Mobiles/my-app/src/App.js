@@ -5,7 +5,7 @@ function App() {
   return (
     <>
    <Header></Header>
-   
+    <Outlet></Outlet>
     <Footer></Footer>
    
       

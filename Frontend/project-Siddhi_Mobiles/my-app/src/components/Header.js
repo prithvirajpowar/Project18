@@ -6,15 +6,14 @@ function Header() {
     <div className="container-header">
       <div className="row">
 
-        <div className="col-4">
-          <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fpngtree.com%2Ffree-circle-png%2Fwhite-circle&psig=AOvVaw0g52fmvBOoaPBlEEzZSyc6&ust=1708001094781000&source=images&cd=vfe&opi=89978449&ved=0CBMQjRxqFwoTCKCcuIbuqoQDFQAAAAAdAAAAABAH" alt=""></img>
-          <h3>Siddhi Mobiles</h3>
+        <div className="col-4 ">
+          <img src="img2.jpg" className="img2" alt=""></img>
         </div>
         
     <div className="col-4">
       <ul class="nav justify-content-center">
         <li className="nav-item" >
-          <Link className="nav-link active" to="/" >
+          <Link className="nav-link active" to="/home" >
             Home
           </Link>
         </li>
