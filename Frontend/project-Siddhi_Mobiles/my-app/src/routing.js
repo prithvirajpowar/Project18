@@ -6,6 +6,7 @@ import Orders from "./components/Orders";
 
 import App from "./App";
 import Home from "./components/Home";
+import Account from "./components/Account";
 
 
 //http://localhost:3000/loginPage
@@ -24,7 +25,7 @@ const customRoute = createBrowserRouter([
             },
             {
                 path:"/accessories",
-                element:<Accessories/>,
+                element:<Account/>,
             },
             {
                 path:"/tablets",
