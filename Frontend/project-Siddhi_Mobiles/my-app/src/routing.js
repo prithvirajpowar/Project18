@@ -20,7 +20,7 @@ const customRoute = createBrowserRouter([
                 element:<Home/>
             },
             {
-                path:"/mobile",
+                path:"/mobiles",
                 element:<Mobiles/>
             },
             {

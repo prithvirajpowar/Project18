@@ -10,22 +10,22 @@ export default function Home() {
         />
       </div>
 
-      <div className="row text-center mt-5">
+      <div className="row text-center">
         <h2 className="text-start heading1">Trending Categories</h2>
         <div class="col-xl-3">
           <img
-            src="https://techring.in/wp-content/uploads/2023/02/Samsung-Galaxy-S24-Ultra.jpg"
+            src="https://ssmobile.com/in/assets/img/category/4-4.png"
             className="i1"
-            alt="img3"
+            alt=".."
           />
           <h5>Mobiles</h5>
         </div>
 
         <div class="col-xl-3">
           <img
-            src="https://5.imimg.com/data5/SELLER/Default/2020/10/XD/SN/JS/51517768/samsung-tab-s7-27-81-cm-11-inch-6-gb-128-gb-wifi-mystic-black--500x500.jpg"
+            src="https://ssmobile.com/in/assets/img/category/3-3.png"
             className="i2"
-            alt="img4"
+            alt=".."
           />
           <h5>Tablets</h5>
         </div>
@@ -34,18 +34,18 @@ export default function Home() {
           <img
             src="https://computerchoice.pk/wp-content/uploads/2020/11/Apple-MacBook-Air-MGN63-.jpg"
             className="i3"
-            alt="img5"
+            alt="..."
           />
           <h5>Laptops</h5>
         </div>
 
         <div class="col-xl-3">
           <img
-            src="https://m.media-amazon.com/images/I/61TGtBnj8xL._AC_UF350,350_QL80_.jpg"
+            src="https://ssmobile.com/in/assets/img/category/2-2.png"
             className="i4"
-            alt="img6"
+            alt="..."
           />
-          <h5>Headphones</h5>
+          <h5>Accessories</h5>
         </div>
       </div>
 
