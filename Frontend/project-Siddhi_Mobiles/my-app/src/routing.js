@@ -25,7 +25,7 @@ const customRoute = createBrowserRouter([
             },
             {
                 path:"/accessories",
-                element:<Account/>,
+                element:<Accessories/>,
             },
             {
                 path:"/tablets",
@@ -35,6 +35,10 @@ const customRoute = createBrowserRouter([
             {
                 path:"/orders",
                 element:<Orders/>,
+            },
+            {
+                path:"/account",
+                element:<Account/>,
             }
         ]
     },

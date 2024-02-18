@@ -37,6 +37,11 @@ function Header() {
             Orders
           </Link>
         </li>
+        <li className="nav-item">
+          <Link className="nav-link active" to="/account">
+            Account
+          </Link>
+        </li>
       </ul>
     </div>
 
