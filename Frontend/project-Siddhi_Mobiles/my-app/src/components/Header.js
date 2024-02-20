@@ -6,11 +6,11 @@ function Header() {
     <div className="container-header">
       <div className="row">
 
-        <div className="col-4 ">
+        <div className="col-3 ">
           <img src="img2.jpg" className="img2" alt=""></img>
         </div>
         
-    <div className="col-4">
+    <div className="col-6">
       <ul class="nav justify-content-center">
         <li className="nav-item" >
           <Link className="nav-link active" to="/home" >
@@ -33,6 +33,11 @@ function Header() {
           </Link>
         </li>
         <li className="nav-item">
+          <Link className="nav-link active" to="/smartTv">
+            SmartTv
+          </Link>
+        </li>
+        <li className="nav-item">
           <Link className="nav-link active" to="/orders">
             Orders
           </Link>
@@ -45,7 +50,7 @@ function Header() {
       </ul>
     </div>
 
-    <div className="col-4">
+    <div className="col-3">
       <ul class="nav justify-content-center">
         <li className="nav-item">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-search" viewBox="0 0 16 16">

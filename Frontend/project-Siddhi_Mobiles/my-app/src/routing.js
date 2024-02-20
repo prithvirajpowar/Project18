@@ -3,7 +3,7 @@ import Mobiles from "./components/Mobiles";
 import Accessories from "./components/Accessories";
 import Tablets from "./components/Tablets";
 import Orders from "./components/Orders";
-
+import SmartTv from "./components/SmartTv";
 import App from "./App";
 import Home from "./components/Home";
 import Account from "./components/Account";
@@ -39,6 +39,10 @@ const customRoute = createBrowserRouter([
             {
                 path:"/account",
                 element:<Account/>,
+            },
+            {
+                path:"/SmartTv",
+                element:<SmartTv/>,
             }
         ]
     },

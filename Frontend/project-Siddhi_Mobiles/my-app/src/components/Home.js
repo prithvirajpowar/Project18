@@ -32,11 +32,11 @@ export default function Home() {
 
         <div class="col-xl-3">
           <img
-            src="https://computerchoice.pk/wp-content/uploads/2020/11/Apple-MacBook-Air-MGN63-.jpg"
+            src="https://ssmobile.com/in/assets/img/category/1-1_1.png"
             className="i3"
             alt="..."
           />
-          <h5>Laptops</h5>
+          <h5>Smart TVs</h5>
         </div>
 
         <div class="col-xl-3">

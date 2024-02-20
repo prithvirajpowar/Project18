@@ -32,7 +32,7 @@ function Footer(){
           <li class="nav-item">Tablets</li>
           <li class="nav-item">Accessories</li>
           <li class="nav-item">Smart TV's</li>
-          <li class="nav-item">Fragrances</li>
+         
         </ul>
       </div>
 
@@ -42,7 +42,6 @@ function Footer(){
           <li class="nav-item">Privacy Policy</li>
           <li class="nav-item">Payment Policy</li>
           <li class="nav-item">Return & Refund Policy</li>
-          <li class="nav-item">Shipping Policy</li>
           <li class="nav-item">Terms & Conditions</li>
         </ul>
       </div>
@@ -50,7 +49,6 @@ function Footer(){
       <div class="col-lg-2">
         <h6>Work with us</h6>
         <ul class="nav flex-column">
-          <li class="nav-item">Franchisee Enquiry</li>
           <li class="nav-item">Siddhi Mobiles</li>
           <li class="nav-item">Service Centre</li>
           
