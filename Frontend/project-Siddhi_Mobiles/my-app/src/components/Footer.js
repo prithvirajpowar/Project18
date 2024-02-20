@@ -72,7 +72,7 @@ function Footer(){
       </div>
     </div>
     <div className="row">
-      <img src="footerlogo.jpg" className="fl"alt="..."></img>
+      <img src="footerlogo.jpg" className="f1"alt="..."></img>
     </div>
   </div>
 </div>

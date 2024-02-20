@@ -4,18 +4,35 @@ export default function Home() {
   return (
     <div class="container-xl-fluid justify-content-center">
       <div className="row mt-2 mb-2border border-primary">
-        <img
-          src="https://www.apple.com/in/iphone-15-pro/images/overview/welcome/hero_endframe__ov6ewwmbhiqq_large.jpg"
-          alt="img1"
-        />
+      <div id="carouselExample" class="carousel slide">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="https://www.apple.com/in/iphone-15-pro/images/overview/welcome/hero_endframe__ov6ewwmbhiqq_large.jpg" class="d-block w-100" alt="..."/>
+    </div>
+    <div class="carousel-item">
+      <img src="https://ssmobile.com/in/assets/img/category/Samsung-Banner.jpg" class="d-block w-100" alt="..."/>
+    </div>
+    <div class="carousel-item">
+      <img src="https://ssmobile.com/in/assets/img/slider/1+-12.jpg" class="d-block w-100" alt="..."/>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
       </div>
 
       <div className="row text-center">
-        <h2 className="text-start heading1">Trending Categories</h2>
+        <h2 className="text-center heading1 mt-3 mb-3">Trending Categories</h2>
         <div class="col-xl-3">
           <img
             src="https://ssmobile.com/in/assets/img/category/4-4.png"
-            className="i1"
+            className="i1 tc-category"
             alt=".."
           />
           <h5>Mobiles</h5>
@@ -24,7 +41,7 @@ export default function Home() {
         <div class="col-xl-3">
           <img
             src="https://ssmobile.com/in/assets/img/category/3-3.png"
-            className="i2"
+            className="i2 tc-category"
             alt=".."
           />
           <h5>Tablets</h5>
@@ -33,7 +50,7 @@ export default function Home() {
         <div class="col-xl-3">
           <img
             src="https://ssmobile.com/in/assets/img/category/1-1_1.png"
-            className="i3"
+            className="i3 tc-category"
             alt="..."
           />
           <h5>Smart TVs</h5>
@@ -42,7 +59,7 @@ export default function Home() {
         <div class="col-xl-3">
           <img
             src="https://ssmobile.com/in/assets/img/category/2-2.png"
-            className="i4"
+            className="i4 tc-category"
             alt="..."
           />
           <h5>Accessories</h5>
