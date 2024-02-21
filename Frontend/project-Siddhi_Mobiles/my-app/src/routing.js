@@ -7,6 +7,7 @@ import SmartTv from "./components/SmartTv";
 import App from "./App";
 import Home from "./components/Home";
 import Account from "./components/Account";
+import Dashboard from "./components/Dashboard";
 
 
 //http://localhost:3000/loginPage
@@ -15,6 +16,10 @@ const customRoute = createBrowserRouter([
         path:"/",
         element:<App/>,
         children:[
+            {
+                path:"/",
+                element:<Home/>
+            },
             {
                 path:"/home",
                 element:<Home/>
@@ -41,8 +46,12 @@ const customRoute = createBrowserRouter([
                 element:<Account/>,
             },
             {
-                path:"/SmartTv",
+                path:"/smarttv",
                 element:<SmartTv/>,
+            },
+            {
+                path:"/dashboard",
+                element:<Dashboard/>,
             }
         ]
     },

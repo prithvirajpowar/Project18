@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import "./Header.css";
+import "../Header.css";
 function Header() {
   // return(<h1>Hello...!!This is the Header component</h1>)
   return (
@@ -41,11 +41,6 @@ function Header() {
                 Orders
               </Link>
             </li>
-            <li className="nav-item">
-              <Link className="nav-link active" to="/account">
-                Account
-              </Link>
-            </li>
           </ul>
         </div>
 
@@ -54,8 +49,8 @@ function Header() {
             <li className="nav-item">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
+                width="20"
+                height="20"
                 fill="white"
                 class="bi bi-search"
                 viewBox="0 0 16 16"
@@ -66,8 +61,8 @@ function Header() {
             <li className="nav-item">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
+                width="20"
+                height="20"
                 fill="white"
                 class="bi bi-heart"
                 viewBox="0 0 16 16"
@@ -78,8 +73,8 @@ function Header() {
             <li className="nav-item">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
+                width="20"
+                height="20"
                 fill="white"
                 class="bi bi-cart"
                 viewBox="0 0 16 16"
@@ -87,18 +82,19 @@ function Header() {
                 <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2" />
               </svg>
             </li>&nbsp;&nbsp;
-            <li className="nav-item">
+            <Link className= "signin" to='/signin'>
+              <li className="nav-item">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
+                width="20"
+                height="20"
                 fill="white"
                 class="bi bi-person-fill"
                 viewBox="0 0 16 16"
               >
                 <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
               </svg>
-            </li>&nbsp;&nbsp;
+            </li></Link>&nbsp;&nbsp;
           </ul>
         </div>
       </div>

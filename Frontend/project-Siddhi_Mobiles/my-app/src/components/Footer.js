@@ -1,8 +1,9 @@
-
+import '../Footer.css';
 function Footer(){
     // return(<h1>Hello...!!This is the Footer component</h1>)
     return(
-        <div class="footer" style={{background: 'black'}}>
+        <div id='container-footer'>
+          <div class="footer" style={{background: 'black'}}>
   <div class="container" style={{color: 'white'}}>
     <div class="row">
       <div class="col-lg-2">
@@ -79,6 +80,7 @@ function Footer(){
 
 
 
+        </div>
 
     //  <div className="container footer">
     //      &copy; MET Nashik, All Rights are Reserved
