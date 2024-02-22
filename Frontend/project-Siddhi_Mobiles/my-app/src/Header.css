@@ -1,17 +1,26 @@
-.container-header{
-  background: black;
+/* Header.css */
+.container-header {
+  background-color: #333;
+  color: white;
+  padding: 10px 0;
+}
+
+.row {
+  display: flex;
   align-items: center;
 }
 
-.nav-link, h3{
-  color: white;
-}
-
-.img2{
+.img2 {
   width: 100px;
   height: 50px;
-  /* border-top: 10px solid; */
-  /* border-bottom: 10px solid; */
-  /* border-left: 4px solid; */
+}
 
+.nav-link {
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+}
+
+.nav-link:hover {
+  text-decoration: underline;
 }

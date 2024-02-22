@@ -3,7 +3,8 @@ import "../Header.css";
 function Header() {
   // return(<h1>Hello...!!This is the Header component</h1>)
   return (
-    <div className="container-header">
+    <form>
+      <div className="container-header">
       <div className="row">
         <div className="col-3 ">
           <img src="img2.jpg" className="img2" alt=""></img>
@@ -41,10 +42,11 @@ function Header() {
                 Orders
               </Link>
             </li>
-<<<<<<< HEAD
-=======
-            
->>>>>>> 01a1c3d455cfedb37b1f037e0f3a07e8e465e3a8
+            {/* <li className="nav-item">
+              <Link className="nav-link active" to="/dashboard">
+                Dashboard
+              </Link>
+            </li> */}
           </ul>
         </div>
 
@@ -103,6 +105,7 @@ function Header() {
         </div>
       </div>
     </div>
+    </form>
   );
 }
 export default Header;

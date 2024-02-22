@@ -7,10 +7,9 @@ import SmartTv from "./components/SmartTv";
 import App from "./App";
 import Home from "./components/Home";
 import Account from "./components/Account";
-import Dashboard from "./components/Dashboard";
+import SignUp from "./components/SignUp";
+import SignIn from "./components/SignIn";
 
-
-//http://localhost:3000/loginPage
 const customRoute = createBrowserRouter([
     {
         path:"/",
@@ -50,9 +49,17 @@ const customRoute = createBrowserRouter([
                 element:<SmartTv/>,
             },
             {
-                path:"/dashboard",
-                element:<Dashboard/>,
-            }
+                path:"/signup",
+                element:<SignUp/>,
+            },
+            {
+                path:"/signin",
+                element:<SignIn/>,
+            },
+            // {
+            //     path:"/dashboard",
+            //     element:<Dashboard/>,
+            // }
         ]
     },
     
