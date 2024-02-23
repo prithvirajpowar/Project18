@@ -3,6 +3,7 @@ package com.example.siddhimobiles.entity;
 import java.util.Collection;
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -47,9 +48,9 @@ public class Shops {
 	@JoinColumn(name="reviewId")
 	private Review reviewerId;
 	
-	@OneToMany
-	@JoinColumn(name="Order_id", nullable=true)
-	private List<Orders> orders;
+	
+	@OneToMany(mappedBy = "shop", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Orders> orders;
 	
 	
 

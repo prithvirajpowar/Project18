@@ -34,4 +34,8 @@ public class SupplierServices {
 	public void deleteOneSuppliers(Long id) {
 		suppliersRepositoryRef.deleteById(id);
 	}
+	// In SupplierServices
+	public Suppliers getSupplier(Long supplierId) {
+	    return suppliersRepositoryRef.findById(supplierId).orElse(null); // Adjust based on your actual repository method
+	}
 }

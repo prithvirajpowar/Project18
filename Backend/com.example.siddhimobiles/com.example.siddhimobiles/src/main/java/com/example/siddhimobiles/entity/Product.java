@@ -1,202 +1,148 @@
 package com.example.siddhimobiles.entity;
 
 import java.util.Arrays;
-import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.Lob;
-import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
-@Table(name="Products")
+@Getter
+@Setter
+@AllArgsConstructor
+@Table(name = "products")
 public class Product {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="product_id")
-	private Long productId;
-	
-	@Column(name="product_name")
-	private String productName;
-	
-	@Lob
-	@Column(name="product_img",columnDefinition = "BLOB")
-	private String productImg;
-	
-	@Column(name="product_model")
-	private String productModel;
-	
-	@Column(name="product_quantity")
-	private int quantity;
-	
-	@Column(name="product_price")
-	private double price;
-	
-	@Column(name="available_colors")
-	private String avaliableColor;
-	
-	@Column(name="discount")
-	private double discount;
-	
-	@Column(name="unit_In_Stock")
-	private int unitInStock;
-		
-	@OneToOne
-	@JoinColumn(name="category_id")
-	private Category category;
-	
-	@ManyToOne
-	@JoinColumn(name="Supplier_ID")
-	private	Suppliers supplierId;
-	
-	
-	public Product() {
-	}
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "product_id")
+    private Long id;
+
+    @Column(name = "product_name", nullable = false)
+    private String name;
+
+    @Column(name = "product_description")
+    private String description;
+
+    
+    @Column(name = "product_image")
+    private String image; 
+
+    @Column(name = "product_price", nullable = false)
+    private Double price;
+
+    @Column(name = "quantity_in_stock")
+    private Integer quantityInStock;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "category_id")
+    private Category category;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "supplier_id")
+    private Suppliers supplier;
+
+   
+
+    public Product() {
+    }
 
 
-	public Product(Long productId, String productName, String productImg, String productModel, int quantity,
-			double price, String avaliableColor, double discount, int unitInStock,
-			Category category, Suppliers supplierId) {
+
+	public Product(Long id, String name, String description, String image, Double price, Integer quantityInStock,
+			Category category, Suppliers supplier) {
 		super();
-		this.productId = productId;
-		this.productName = productName;
-		this.productImg = productImg;
-		this.productModel = productModel;
-		this.quantity = quantity;
+		this.id = id;
+		this.name = name;
+		this.description = description;
+		this.image = image;
 		this.price = price;
-		this.avaliableColor = avaliableColor;
-		this.discount = discount;
-		this.unitInStock = unitInStock;
+		this.quantityInStock = quantityInStock;
 		this.category = category;
-		this.supplierId = supplierId;
+		this.supplier = supplier;
 	}
 
 
 
-
-	public Long getProductId() {
-		return productId;
-	}
-
-	public void setProductId(Long productId) {
-		this.productId = productId;
-	}
-
-	public String getProductName() {
-		return productName;
-	}
-
-
-	public void setProductName(String productName) {
-		this.productName = productName;
+	public Long getId() {
+		return id;
 	}
 
 
 
-
-	public String getProductImg() {
-		return productImg;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 
 
-
-	public void setProductImg(String productImg) {
-		this.productImg = productImg;
+	public String getName() {
+		return name;
 	}
 
 
 
-
-	public String getProductModel() {
-		return productModel;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 
 
-
-	public void setProductModel(String productModel) {
-		this.productModel = productModel;
+	public String getDescription() {
+		return description;
 	}
 
 
 
-
-	public int getQuantity() {
-		return quantity;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 
 
-
-	public void setQuantity(int quantity) {
-		this.quantity = quantity;
+	public String getImage() {
+		return image;
 	}
 
 
 
+	public void setImage(String image) {
+		this.image = image;
+	}
 
-	public double getPrice() {
+
+
+	public Double getPrice() {
 		return price;
 	}
 
 
 
-
-	public void setPrice(double price) {
+	public void setPrice(Double price) {
 		this.price = price;
 	}
 
 
 
-
-	public String getAvaliableColor() {
-		return avaliableColor;
+	public Integer getQuantityInStock() {
+		return quantityInStock;
 	}
 
 
 
-
-	public void setAvaliableColor(String avaliableColor) {
-		this.avaliableColor = avaliableColor;
+	public void setQuantityInStock(Integer quantityInStock) {
+		this.quantityInStock = quantityInStock;
 	}
-
-
-
-
-	public double getDiscount() {
-		return discount;
-	}
-
-
-
-
-	public void setDiscount(double discount) {
-		this.discount = discount;
-	}
-
-
-
-
-	public int getUnitInStock() {
-		return unitInStock;
-	}
-
-
-
-
-	public void setUnitInStock(int unitInStock) {
-		this.unitInStock = unitInStock;
-	}
-
 
 
 
@@ -206,39 +152,30 @@ public class Product {
 
 
 
-
 	public void setCategory(Category category) {
 		this.category = category;
 	}
 
 
 
-
-	public Suppliers getSupplierId() {
-		return supplierId;
+	public Suppliers getSupplier() {
+		return supplier;
 	}
 
 
 
-
-	public void setSupplierId(Suppliers supplierId) {
-		this.supplierId = supplierId;
+	public void setSupplier(Suppliers supplier) {
+		this.supplier = supplier;
 	}
-
 
 
 
 	@Override
 	public String toString() {
-		return "Product [productId=" + productId + ", productName=" + productName + ", productImg="
-				+ productImg + ", productModel=" + productModel + ", quantity=" + quantity + ", price="
-				+ price + ", avaliableColor=" + avaliableColor + ", discount=" + discount + ", unitInStock="
-				+ unitInStock + ", unitOnOrder=" + ",  category=" + category
-				+ ", supplierId=" + supplierId + "]";
+		return "Product [id=" + id + ", name=" + name + ", description=" + description + ", image="
+				+ image + ", price=" + price + ", quantityInStock=" + quantityInStock + ", category="
+				+ category + ", supplier=" + supplier + "]";
 	}
 
-
-
-
-	
+ 
 }

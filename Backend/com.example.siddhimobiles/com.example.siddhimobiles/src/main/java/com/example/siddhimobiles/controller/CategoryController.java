@@ -16,7 +16,7 @@ import com.example.siddhimobiles.service.CategoryServices;
 
 
 @RestController
-//@RequestMapping("categories")
+//@RequestMapping("/categories")
 public class CategoryController {
 	@Autowired
 	private CategoryServices categoryServiceRef;
@@ -41,9 +41,10 @@ public class CategoryController {
 
 	}
 
-	@DeleteMapping("/category/{categoryId}")
-	public void deleteOneCategory(@PathVariable("categoryId") Long id) {
-		categoryServiceRef.deleteOneCategory(id);
+	@DeleteMapping("/deletecat/{id}")
+	public String deleteOneCategory(@PathVariable Long id) {
+		String res = categoryServiceRef.deleteOneCategory(id);
+		return res;
 	}
 
 }

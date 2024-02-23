@@ -30,8 +30,16 @@ public class CategoryServices {
 		categoryRepositoryRef.save(categoryRef);
 	}
 
-	public void deleteOneCategory(Long id) {
+	public String deleteOneCategory(Long id) {
 		categoryRepositoryRef.deleteById(id);
+		return id+": Deleted";
 	}
+	// In CategoryServices
+	public Category getCategory(Long categoryId) {
+	    return categoryRepositoryRef.findById(categoryId).orElse(null); // Adjust based on your actual repository method
+	}
+
+	
+
 
 }

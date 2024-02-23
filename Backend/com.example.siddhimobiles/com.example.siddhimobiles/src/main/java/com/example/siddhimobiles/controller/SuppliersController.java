@@ -31,14 +31,16 @@ public class SuppliersController {
 	}
 
 	@PostMapping("/supplier")
-	public void addNewSuppliers(@RequestBody Suppliers suppliersRef) {
+	public String addNewSuppliers(@RequestBody Suppliers suppliersRef) {
 		System.out.println(suppliersRef);
 		suppliersServicesRef.addNewSuppliers(suppliersRef);
+		return suppliersRef + " : added";
 
 	}
 
 	@DeleteMapping("/supplier/{supplierId}")
-	public void deleteOneSuppliers(@PathVariable("supplierId") Long id) {
+	public String deleteOneSuppliers(@PathVariable("supplierId") Long id) {
 		suppliersServicesRef.deleteOneSuppliers(id);
+		return id + " : supplier deleted";
 	}
 }
