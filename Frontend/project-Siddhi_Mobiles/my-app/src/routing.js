@@ -10,6 +10,12 @@ import Account from "./components/Account";
 import SignUp from "./components/SignUp";
 import SignIn from "./components/SignIn";
 
+import Delivery from "./components/Delivery";
+import Dashboard from "./components/Dashboard";
+import Inventory from "./components/Inventory";
+import Store  from "./components/Store";
+import Enquiry from "./components/Enquiry";
+
 const customRoute = createBrowserRouter([
     {
         path:"/",
@@ -56,10 +62,30 @@ const customRoute = createBrowserRouter([
                 path:"/signin",
                 element:<SignIn/>,
             },
-            // {
-            //     path:"/dashboard",
-            //     element:<Dashboard/>,
-            // }
+            {
+                path:"/dashboard",
+                element:<Dashboard/>,
+            },
+            {
+                path:"/inventory",
+                element:<Inventory/>,
+            },
+            {
+                path:"/delivery",
+                element:<Delivery/>,
+            },
+            {
+                path:"/orders",
+                element:<Orders/>,
+            },
+            {
+                path:"/store",
+                element:<Store/>,
+            },
+            {
+                path:"/enquiry",
+                element:<Enquiry/>,
+            }
         ]
     },
     

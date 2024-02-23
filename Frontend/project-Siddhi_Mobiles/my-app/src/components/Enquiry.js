@@ -1,5 +1,6 @@
 import React from 'react'
 import '../Enquiry.css';
+import { Link } from 'react-router-dom';
 function Enquiry() {
   return (
     <div>

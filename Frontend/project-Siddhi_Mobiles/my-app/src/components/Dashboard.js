@@ -1,6 +1,6 @@
 import React from 'react';
 import '../Dashboard.css'; // Import Bootstrap CSS
-
+import { Link } from 'react-router-dom';
 const Dashboard = () => {
   return (
     <div className="container d-flex justify-content-center align-items-center min-vh-100">
@@ -10,21 +10,21 @@ const Dashboard = () => {
         <div className="col-md-3">
           <div
             className="card side-bar"
-            style={{ width: "15rem", border: "none" }}
+            style={{ width: "12rem", border: "none"}}
           >
             <img
-              src="images/Rectangle_16.jpg"
+              src="images/logo.jpg"
               className="card-img-top"
-              alt="..."
+              alt="logo"
               style={{ width: 225 }}
             />
             <ul className="list-group list-group-flush">
-              <li className="list-group-item">Dashboard</li>
-              <li className="list-group-item">Inventory</li>
-              <li className="list-group-item">Account</li>
-              <li className="list-group-item">Order Details</li>
-              <li className="list-group-item">Shop Details</li>
-              <li className="list-group-item">Delivery</li>
+              <Link to='/dashboard'><li className="list-group-item">Dashboard</li></Link>
+              <Link to='/inventory'><li className="list-group-item">Inventory</li></Link>
+              <Link to='/account'><li className="list-group-item">Account</li></Link>
+              <Link to='/orders'><li className="list-group-item">Order Details</li></Link>
+              <Link to='/shops'><li className="list-group-item">Shop Details</li></Link>
+              <Link to='/delivery'><li className="list-group-item">Delivery</li></Link>
             </ul>
           </div>
         </div>
@@ -32,7 +32,7 @@ const Dashboard = () => {
     </div>
     <div className="col-md-9 right-box">
       <div className="row details" style={{ padding: 20 }}>
-        <h3>Dashboard</h3>
+        <h3>Dashboard</h3><br/>
         <div className="col-4">
           <div className="card" style={{ width: "11rem", height: "7rem" }}>
             <div className="card-body"></div>

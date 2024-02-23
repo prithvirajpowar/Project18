@@ -142,17 +142,11 @@ const SignIn = () => {
   return (
     <>
       <div className="container d-flex justify-content-center align-items-center min-vh-100">
-        <div className="row border rounded-5 p-3 bg-white shadow box-area">
-          <div className="col-md-6 rounded-4 d-flex justify-content-center align-items-center flex-column left-box">
-            <div class="featured-image">
-              <img src="/images/oneplus.webp" class="img-fluid" />
-            </div>
-          </div>
           <div className="col-md-6 right-box">
             <form onSubmit={handleSubmit}>
               <div className="row align-items-center">
                 <div className="header-text mb-4">
-                  <h2>SignIn</h2>
+                  <h2>Sign-In</h2>
                 </div>
                 <div className="input-group mb-3">
                   <button className="btn btn-lg btn-light w-100 fs-6">
@@ -233,7 +227,6 @@ const SignIn = () => {
               </div>
             </form>
           </div>
-        </div>
       </div>
     </>
   );
