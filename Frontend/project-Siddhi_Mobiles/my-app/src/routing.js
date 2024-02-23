@@ -14,7 +14,6 @@ import Delivery from "./components/Delivery";
 import Dashboard from "./components/Dashboard";
 import Inventory from "./components/Inventory";
 import Store  from "./components/Store";
-import Enquiry from "./components/Enquiry";
 
 const customRoute = createBrowserRouter([
     {
@@ -81,10 +80,6 @@ const customRoute = createBrowserRouter([
             {
                 path:"/store",
                 element:<Store/>,
-            },
-            {
-                path:"/enquiry",
-                element:<Enquiry/>,
             }
         ]
     },
