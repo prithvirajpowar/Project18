@@ -1,62 +1,72 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 
 function Delete() {
-  return (
-  <>
-  <div className="container " />
-  <div
-    style={{
-      boxShadow: "2cm",
-      textShadow: "2cm",
-      color: "rgb(4, 4, 10)",
-      textAlign: "center"
-    }}
-  >
-    <b>
-      <h1>List Of Product</h1>
-    </b>
-  </div>
+  const [products, setProducts] = useState([]);
 
-    <div
-      className=" col-10 row mb-5 margin-bottom:auto "
-      style={{ paddingLeft: "15%" }}
-    >
-      <table className="table table-bordered">
-        <thead className="border border-secondary, table-dark">
-          <tr>
-            <th scope="col">Images</th>
-            <th scope="col">Names</th>
-            <th scope="col">Description</th>
-            <th scope="col">Price</th>
-            <th scope="col">Delete Product</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>image1</td>
-            <td>
-              Phone <br />
-              </td>
-            <td>
-              samsung phone
-              <br />
-              </td>
-            <td>
-              100000
-              <br />
-              </td>
-            <td>
-              <button className="btn btn-danger" type="submit">
-                Delete
-              </button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
- 
-</>
-    
-  )
+  useEffect(() => {
+    fetchProducts();
+  }, []);
+
+  const fetchProducts = async () => {
+    try {
+      const response = await axios.get('http://localhost:9540/allproducts');
+      setProducts(response.data);
+    } catch (error) {
+      console.error("There was an error fetching the products: ", error);
+    }
+  };
+
+  const deleteProduct = async (id) => {
+    try {
+      await axios.delete(`http://localhost:9540/product/${id}`);
+      fetchProducts(); 
+    } catch (error) {
+      console.error("There was an error deleting the product: ", error);
+    }
+  };
+
+  return (
+    <>
+      <div className="container">
+        <div style={{ color: "rgb(4, 4, 10)", textAlign: "center" }}>
+          <h1>List Of Product</h1>
+        </div>
+
+        <div className="col-10 row mb-5" style={{ paddingLeft: "15%" }}>
+          <table className="table table-bordered">
+            <thead className="table-dark">
+              <tr>
+                <th scope="col">Images</th>
+                <th scope="col">Names</th>
+                <th scope="col">Description</th>
+                <th scope="col">Price</th>
+                <th scope="col">Delete Product</th>
+              </tr>
+            </thead>
+            <tbody>
+              {products.map((product) => (
+                <tr key={product.id}>
+                  <td><img src={product.image} alt={product.name} style={{ width: '100px' }} /></td>
+                  <td>{product.name}</td>
+                  <td>{product.description}</td>
+                  <td>₹{product.price}</td>
+                  <td>
+                    <button
+                      className="btn btn-danger"
+                      onClick={() => deleteProduct(product.id)}
+                    >
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </>
+  );
 }
-export default Delete
+
+export default Delete;
