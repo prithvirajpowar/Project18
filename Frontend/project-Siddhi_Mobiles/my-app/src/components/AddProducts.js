@@ -46,7 +46,7 @@ function AddProducts() {
               <br />
               </td>
             <td>
-              <button className="btn btn-success" type="submit" onClick={() => addProduct("Phone")}>
+              <button className="btn btn-success" type="submit">
                 Add
               </button>
             </td>
