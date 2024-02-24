@@ -7,13 +7,16 @@ import SmartTv from "./components/SmartTv";
 import App from "./App";
 import Home from "./components/Home";
 import Account from "./components/Account";
-import SignUp from "./components/Signup";
+import SignUp from "./components/SignUp";
 import SignIn from "./components/SignIn";
 
 import Delivery from "./components/Delivery";
 import Dashboard from "./components/Dashboard";
 import Inventory from "./components/Inventory";
 import Store  from "./components/Store";
+
+import Delete from "./components/Delete";
+import AddProducts from "./components/AddProducts";
 
 const customRoute = createBrowserRouter([
     {
@@ -80,6 +83,14 @@ const customRoute = createBrowserRouter([
             {
                 path:"/store",
                 element:<Store/>,
+            },
+            {
+                path:'/addproducts',
+                element:<AddProducts/>,
+            },
+            {
+                path:'/delete',
+                element:<Delete/>,
             }
         ]
     },
