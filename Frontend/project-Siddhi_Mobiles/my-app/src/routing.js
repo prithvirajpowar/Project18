@@ -25,7 +25,7 @@ const customRoute = createBrowserRouter([
         children:[
             {
                 path:"/",
-                element:<Home/>
+                element:<SignIn/>
             },
             {
                 path:"/home",

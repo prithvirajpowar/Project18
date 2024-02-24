@@ -1,94 +1,8 @@
-// import React from 'react';
-// import '../SignUp.css';
-// import { Link } from 'react-router-dom';
-
-// const SignIn = () => {
-//   return (
-//     <>
-//      <div className="container d-flex justify-content-center align-items-center min-vh-100">
-//   <div className="row border rounded-5 p-3 bg-white shadow box-area">
-//     <div className="col-md-6 rounded-4 d-flex justify-content-center align-items-center flex-column left-box">
-
-//     </div>
-//     <div className="col-md-6 right-box">
-//       <form>
-//         <div className="row align-items-center">
-//           <div className="header-text mb-4">
-//             <h2>SignIn</h2>
-//           </div>
-//           <div className="input-group mb-3">
-//             <button className="btn btn-lg btn-light w-100 fs-6">
-//               <img
-//                 src="../src/images/google.png"
-//                 style={{ width: 20 }}
-//                 className="me-2"
-//               />
-//               <small>Sign In with Google</small>
-//             </button>
-//           </div>
-//           <div className="input-group mb-3">
-//             <input
-//               type="text"
-//               className="form-control form-control-lg bg-light fs-6"
-//               placeholder="Email address"
-//               required=""
-//             />
-//           </div>
-//           <div className="input-group mb-1">
-//             <input
-//               type="password"
-//               className="form-control form-control-lg bg-light fs-6"
-//               placeholder="Password"
-//               required=""
-//             />
-//           </div>
-//           <div className="input-group mb-5 d-flex justify-content-between">
-//             <div className="form-check">
-//               <input
-//                 type="checkbox"
-//                 className="form-check-input"
-//                 id="formCheck"
-//               />
-//               <label
-//                 htmlFor="formCheck"
-//                 className="form-check-label text-secondary"
-//               >
-//                 <small>Remember Me</small>
-//               </label>
-//             </div>
-//             <div className="forgot">
-//               <small>
-//                 <a href="#">Forgot Password?</a>
-//               </small>
-//             </div>
-//           </div>
-//           <div className="input-group mb-3">
-//             <button className="btn btn-lg btn-primary w-100 fs-6">
-//               Continue
-//             </button>
-//           </div>
-//           <br />
-//           <div className="row">
-//             <small>
-//               Not a member? <Link to='/signup'><a href="#">Create account</a></Link>
-//             </small>
-//           </div>
-//         </div>
-//       </form>
-//     </div>
-//   </div>
-// </div>
-
-//     </>
-
-//   );
-// };
-
-// export default SignIn;
-
-import React, { useState } from "react";
+import React, {useRef, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+import Cookies from "js-cookie";
 import "../SignUp.css";
-import { Link } from "react-router-dom";
 
 const SignIn = () => {
   const [formData, setFormData] = useState({
@@ -96,6 +10,7 @@ const SignIn = () => {
     password: "",
   });
 
+  const navigate = useNavigate();
   const [errors, setErrors] = useState({});
 
   const handleChange = (e) => {
@@ -110,9 +25,46 @@ const SignIn = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    const email = e.target.value
+    const password = e.target.value
 
+    // axios.post('http://localhost:9540/user',formData)
+    // .then(response => 
+    //   { 
+    //     console.log(response)
+    //     navigate('/home')
+    //   })
+    // .catch(error => console.log(error));
+
+    try{
+      const response = await axios.get('http://localhost:9540/user', formData);
+      console.log(response);
+
+      const [role, userId] = response.data.split("_");
+      const uId = parseInt(userId)
+      Cookies.set('userId', uId);
+
+      if(role === 'user'){
+        Cookies.set('isUser', true);
+        Cookies.set('authenticated', true);
+        navigate('/home');
+        window.location.reload();
+      }
+      else if(role === 'admin'){
+        Cookies.set('isAdmin',true);
+        Cookies.set('authenticated',true);
+        navigate('/home');
+        window.location.reload();
+    }else{
+      alert(response.status)
+    }
+    } catch(err){
+      console.log(err);
+      setError("Incorrect username or password");
+    }
+  
     const newErrors = {};
 
     // Email validation
@@ -210,11 +162,11 @@ const SignIn = () => {
                     </small>
                   </div>
                 </div>
-                <div className="input-group mb-3">
+                <Link to='/home'><div className="input-group mb-3">
                   <button className="btn btn-lg btn-primary w-100 fs-6">
                     Continue
                   </button>
-                </div>
+                </div></Link>
                 <br />
                 <div className="row">
                   <small>
