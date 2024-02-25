@@ -72,7 +72,7 @@ const SignIn = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    axios.post('http://localhost:9540/signin',formData)
+    axios.post('http://localhost:9540/loginUser',formData)
     .then(response => 
       { if(response.data.SignIn){
         setIsAuthenticated(true);
