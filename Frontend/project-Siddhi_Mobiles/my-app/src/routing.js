@@ -7,7 +7,7 @@ import SmartTv from "./components/SmartTv";
 import App from "./App";
 import Home from "./components/Home";
 import Account from "./components/Account";
-import SignUp from "./components/Signup";
+import SignUp from "./components/SignUp";
 import SignIn from "./components/SignIn";
 
 import Delivery from "./components/Delivery";

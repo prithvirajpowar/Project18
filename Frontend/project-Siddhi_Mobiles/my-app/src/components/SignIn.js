@@ -1,4 +1,4 @@
-import React, {useRef, useState } from "react";
+import React, {useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Cookies from "js-cookie";
@@ -12,6 +12,8 @@ const SignIn = () => {
 
   const navigate = useNavigate();
   const [errors, setErrors] = useState({});
+  const [isAuthenticated, setIsAuthenticated] = useState(false); // Added state for session
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -25,46 +27,65 @@ const SignIn = () => {
     });
   };
 
+  // const handleGoogleSignIn = async () => {
+  //   try {
+  //     // Load the Google Sign-In API script
+  //     await new Promise((resolve) => {
+  //       const script = document.createElement("script");
+  //       script.src = "https://apis.google.com/js/platform.js";
+  //       script.onload = resolve;
+  //       document.body.appendChild(script);
+  //     });
+  
+  //     // Initialize the Google Sign-In API with your client ID
+  //     await window.gapi.load("auth2", async () => {
+  //       await window.gapi.auth2.init({
+  //         client_id: "242718267072-driauk7gk8g7g3550gdu6ud8o2urf0tp.apps.googleusercontent.com",
+  //       });
+  
+  //       // Sign in the user
+  //       const auth2 = window.gapi.auth2.getAuthInstance();
+  //       const googleUser = await auth2.signIn();
+  
+  //       const profile = googleUser.getBasicProfile();
+  //       const googleEmail = profile.getEmail();
+  
+  //       console.log("Google Sign-In successful:", googleEmail);
+  
+  //       // You may want to send the Google email to your server for authentication
+  //       // Example: axios.post('http://localhost:9540/google-auth', { email: googleEmail });
+  //     });
+  //   } catch (error) {
+  //     console.error("Google Sign-In failed:", error);
+  //   }
+  // };
+
+
+// <GoogleLogin
+// onSuccess={(credentialResponse) => {
+//   console.log(credentialResponse);
+// }}
+// onError={() => {
+//   console.log('Login Failed');
+// }}
+// />
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const email = e.target.value
-    const password = e.target.value
-
-    // axios.post('http://localhost:9540/user',formData)
-    // .then(response => 
-    //   { 
-    //     console.log(response)
-    //     navigate('/home')
-    //   })
-    // .catch(error => console.log(error));
-
-    try{
-      const response = await axios.get('http://localhost:9540/user', formData);
-      console.log(response);
-
-      const [role, userId] = response.data.split("_");
-      const uId = parseInt(userId)
-      Cookies.set('userId', uId);
-
-      if(role === 'user'){
-        Cookies.set('isUser', true);
-        Cookies.set('authenticated', true);
-        navigate('/home');
-        window.location.reload();
+    axios.post('http://localhost:9540/user',formData)
+    .then(response => 
+      { if(response.data.SignIn){
+        setIsAuthenticated(true);
+        navigate('/home')
       }
-      else if(role === 'admin'){
-        Cookies.set('isAdmin',true);
-        Cookies.set('authenticated',true);
-        navigate('/home');
-        window.location.reload();
-    }else{
-      alert(response.status)
-    }
-    } catch(err){
-      console.log(err);
-      setError("Incorrect username or password");
-    }
-  
+      else{
+        alert("No Record")
+      }
+      console.log(response.data)
+      })
+    .catch(error => console.log(error));
+
+    
     const newErrors = {};
 
     // Email validation
@@ -89,6 +110,13 @@ const SignIn = () => {
       // Proceed with the form submission logic here
       console.log("Form submitted:", formData);
     }
+  };
+  
+  const handleLogout = () => {
+    // Clear session and navigate to login page
+    setIsAuthenticated(false);
+    Cookies.remove("authenticated");
+    navigate("/signin");
   };
 
   return (
@@ -162,19 +190,31 @@ const SignIn = () => {
                     </small>
                   </div>
                 </div>
-                <Link to='/home'><div className="input-group mb-3">
+                <div className="input-group mb-3">
                   <button className="btn btn-lg btn-primary w-100 fs-6">
                     Continue
                   </button>
-                </div></Link>
+                </div>
                 <br />
                 <div className="row">
+                {isAuthenticated ? (
+                  <small>
+                    Welcome, user!{" "}
+                    <button
+                      className="link-button"
+                      onClick={handleLogout}
+                    >
+                      Logout
+                    </button>
+                    </small>
+                ) : (
                   <small>
                     Not a member?
                     <Link to="/signup">
                       <a href="#">Create account</a>
                     </Link>
                   </small>
+                   )}
                 </div>
               </div>
             </form>
