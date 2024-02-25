@@ -1,9 +1,0 @@
-package com.example.siddhimobiles.entity;
-
-public class User {
-
-	public User() {
-		// TODO Auto-generated constructor stub
-	}
-
-}

@@ -1,7 +1,0 @@
-package com.example.siddhimobiles.repository;
-
-import org.hibernate.type.descriptor.converter.spi.JpaAttributeConverter;
-
-public interface userRepository extends JpaAttributeConverter<O, R> {
-
-}

@@ -1,9 +1,0 @@
-package com.example.siddhimobiles.entity;
-
-public class JwtResponse {
-
-	public JwtResponse() {
-		// TODO Auto-generated constructor stub
-	}
-
-}
