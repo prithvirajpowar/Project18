@@ -12,11 +12,11 @@ const Header = () => {
 
 	useEffect(() => {
 		const auth = Cookies.get('authenticated') === 'true';
-		const admin = Cookies.get('isAdmin') === 'true';
-		const user = Cookies.get('isUser') === 'true';
+		const ADMIN = Cookies.get('isAdmin') === 'true';
+		const USER = Cookies.get('isUser') === 'true';
 		setAuthenticated(auth);
-		setIsAdmin(admin);
-		setIsUser(user);
+		setIsAdmin(ADMIN);
+		setIsUser(USER);
 	},[]);
 
 	const handleLogout = () => {
@@ -27,6 +27,7 @@ const Header = () => {
 		setIsAdmin(false);
 		setIsUser(false);
 		navigate('/signin')
+		
 	};
 
 	return (
@@ -113,10 +114,6 @@ const Header = () => {
 				) : (
 					<Link to="/signin"><FaUser className="icon"/><span>Login</span></Link>
 					)}
-					{/* {!isAdmin ? (
-					  <Link to="/booking" className="btn btn-outline-success text-primary-emphasis ms-2">Book Now</Link>
-					) : ("")
-				} */}
 
 			</div>
 		</nav>

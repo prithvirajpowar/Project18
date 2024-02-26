@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import Header2 from "./Header2";
 
 export default function Home() {
   const [products, setProducts] = useState([]);
@@ -25,6 +26,8 @@ export default function Home() {
     return products.filter(product => product.category.categoryId === categoryId);
   };
   return (
+    <>
+    <Header2></Header2>
     <div class="container-xl-fluid justify-content-center">
       <div className="row">
         <img
@@ -56,5 +59,7 @@ export default function Home() {
         ))}
       </div>
     </div>
-  );
+
+    </>
+    );
 }

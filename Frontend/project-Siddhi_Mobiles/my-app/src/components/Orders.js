@@ -1,8 +1,11 @@
 import React from 'react';
 import '../Order.css'; // Import Bootstrap CSS
 import { Link } from 'react-router-dom';
+import Header1 from './Header1';
 const Orders = () => {
   return (
+    <>
+    <Header1></Header1>
     <div className="container d-flex justify-content-center align-items-center min-vh-100">
   <div className="row border rounded-5 p-3 bg-white shadow box-area">
     <div className="col-md-3 rounded-4 d-flex  flex-column left-box">
@@ -50,6 +53,7 @@ const Orders = () => {
           </div>
   </div>
 
+    </>
 
     );
 };

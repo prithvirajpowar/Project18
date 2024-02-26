@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import Header1 from "./Header1";
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 function Delete() {
   const [products, setProducts] = useState([]);
@@ -28,9 +30,11 @@ function Delete() {
 
   return (
     <>
+    <Header1></Header1>
       <div className="container">
         <div style={{ color: "rgb(4, 4, 10)", textAlign: "center" }}>
           <h1>List Of Product</h1>
+          <Link to='/add'><button type='submit'  className="btn btn-success">Add Products</button></Link>
         </div>
 
         <div className="col-10 row mb-5" style={{ paddingLeft: "15%" }}>

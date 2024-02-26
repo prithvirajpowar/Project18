@@ -1,97 +1,119 @@
-import React from 'react'
+import React, { useState } from "react";
+import axios from "axios";
+import Header1 from "./Header1";
 
-export default function add() {
+export default function AddForm() {
+  const [productData, setProductData] = useState({
+    product_name: "",
+    product_price: "",
+    product_description: "",
+    product_quantity: "",
+    category_id: "",
+    supplier_id: "",
+  });
+  const [productImage, setProductImage] = useState(null);
+  const [feedback, setFeedback] = useState(""); // To provide user feedback
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setProductData({ ...productData, [name]: value });
+  };
+
+  const handleFileChange = (e) => {
+    setProductImage(e.target.files[0]);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+  
+    const formData = new FormData();
+    formData.append("name", productData.product_name);
+    formData.append("description", productData.product_description);
+    formData.append("price", productData.product_price);
+    formData.append("quantityInStock", productData.product_quantity); 
+    formData.append("categoryId", productData.category_id); 
+    formData.append("supplierId", productData.supplier_id); 
+  
+    if (productImage) {
+      formData.append("image", productImage); 
+    }
+  
+    try {
+      const response = await axios.post("http://localhost:9540/product", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
+      console.log(response.data);
+      setFeedback("Product successfully added!");
+      alert("Product successfully added!");
+    } catch (error) {
+      console.error("Error posting product data:", error.response ? error.response.data : error.message);
+      setFeedback("Error adding product. Please try again.");
+    }
+  };
+  
+
   return (
-    <div>
-      <>
-   <style dangerouslySetInnerHTML={{__html:"\n  label {\n font-weight: bold;\n  }\n" }}/>
-  <div className="container mt-5 border rounded p-4">
-    <h2 className="text-center">ADD PRODUCT</h2>
-    <form action="#" method="post" encType="multipart/form-data">
-      <div className="form-group">
-        <label htmlFor="product_name">Product Name</label>
-        <input
-          type="text"
-          className="form-control"
-          id="product_name"
-          name="product_name"
-          required=""
-        />
-      </div>
-      <div className="form-group">
-        <label htmlFor="product_price">Product Price</label>
-        <input
-          type="text"
-          className="form-control"
-          id="product_price"
-          name="product_price"
-          required=""
-        />
-      </div>
-      <div className="form-group">
-        <label htmlFor="product_description">Product Description</label>
-        <textarea
-          className="form-control"
-          id="product_description"
-          name="product_description"
-          required=""
-          defaultValue={""}
-        />
-      </div>
-      <div className="form-group">
-        <label htmlFor="product_quantity">Quantity</label>
-        <input
-          type="text"
-          className="form-control"
-          id="product_quantity"
-          name="product_quantity"
-          required=""
-        />
-      </div>
-      <div className="form-group">
-        <label htmlFor="category_id">Category ID</label>
-        <select
-          className="form-control"
-          id="category_id"
-          name="category_id"
-          required=""
-        >
-          <option value="">Select Category</option>
-          <option value="mobile">Mobile</option>
-          <option value="tv">TV</option>
-          <option value="accessories">Accessories</option>
-        </select>
-      </div>
-      <div className="form-group">
-        <label htmlFor="supplier_id">Supplier ID</label>
-        <select
-          className="form-control"
-          id="supplier_id"
-          name="supplier_id"
-          required=""
-        >
-          <option value="">Select Supplier</option>
-          <option value="supplier1">Supplier 1</option>
-          <option value="supplier2">Supplier 2</option>
-          <option value="supplier3">Supplier 3</option>
-        </select>
-      </div>
-      <div className="form-group">
-        <label htmlFor="product_image">Add Image</label>
-        <input
-          type="file"
-          className="form-control-file"
-          id="product_image"
-          name="product_image"
-        />
-      </div>
-      <button type="submit" className="btn btn-primary">
-        Submit
-      </button>
-    </form>
-  </div>
-</>
+    <>
+    <Header1></Header1>
+    <div className="container mt-5">
+      <div className="card border-0 shadow">
+        <div className="card-header">Add Product</div>
+        <div className="card-body">
+          {feedback && <div className="alert alert-warning">{feedback}</div>} {/* Display feedback */}
+          <form onSubmit={handleSubmit} encType="multipart/form-data">
+            <div className="mb-3">
+              <label htmlFor="product_name" className="form-label">Product Name</label>
+              <input type="text" className="form-control" name="product_name" required value={productData.product_name} onChange={handleInputChange} />
+            </div>
 
+            <div className="mb-3">
+              <label htmlFor="product_price" className="form-label">Product Price</label>
+              <input type="number" className="form-control" name="product_price" value={productData.product_price} onChange={handleInputChange} />
+            </div>
+
+            <div className="mb-3">
+              <label htmlFor="product_description" className="form-label">Product Description</label>
+              <textarea className="form-control" name="product_description" value={productData.product_description} onChange={handleInputChange}></textarea>
+            </div>
+
+            <div className="mb-3">
+              <label htmlFor="product_quantity" className="form-label">Quantity</label>
+              <input type="number" className="form-control" name="product_quantity" value={productData.product_quantity} onChange={handleInputChange} />
+            </div>
+
+            <div className="mb-3">
+              <label htmlFor="category_id" className="form-label">Category ID</label>
+              <select className="form-select" name="category_id" required value={productData.category_id} onChange={handleInputChange}>
+                <option value="">Select Category</option>
+                <option value="1">Accessories</option>
+                <option value="2">Mobile</option>
+                <option value="3">TV</option>
+              </select>
+            </div>
+
+            <div className="mb-3">
+              <label htmlFor="supplier_id" className="form-label">Supplier ID</label>
+              <select className="form-select" name="supplier_id" required value={productData.supplier_id} onChange={handleInputChange}>
+                <option value="">Select Supplier</option>
+                <option value="1">Samsung</option>
+                <option value="2">Apple</option>
+                <option value="3">Supplier 3</option>
+              </select>
+            </div>
+
+            <div className="mb-3">
+              <label htmlFor="product_image" className="form-label">Add Image</label>
+              <input type="file" className="form-control" name="product_image" onChange={handleFileChange} />
+            </div>
+
+            <button type="submit" className="btn btn-primary">Submit</button>
+          </form>
+        </div>
+      </div>
     </div>
-  )
+
+    </>
+    );
 }

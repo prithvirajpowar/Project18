@@ -6,6 +6,8 @@ import Orders from "./components/Orders";
 import SmartTv from "./components/SmartTv";
 import App from "./App";
 import Home from "./components/Home";
+import Home1 from "./components/Home1";
+
 import Account from "./components/Account";
 import SignUp from "./components/SignUp";
 import SignIn from "./components/SignIn";
@@ -13,10 +15,13 @@ import SignIn from "./components/SignIn";
 import Delivery from "./components/Delivery";
 import Dashboard from "./components/Dashboard";
 import Inventory from "./components/Inventory";
-import Store  from "./components/Store";
-
+import Iphone from "./components/Iphone";
 import Delete from "./components/Delete";
 import AddProducts from "./components/AddProducts";
+import AddForm from "./components/AddForm";
+
+import AccList from "./components/AccList";
+import AccTab from "./components/AccTab";
 
 const customRoute = createBrowserRouter([
     {
@@ -32,6 +37,10 @@ const customRoute = createBrowserRouter([
                 element:<Home/>
             },
             {
+                path:"/home1",
+                element:<Home1/>
+            },
+            {
                 path:"/mobiles",
                 element:<Mobiles/>
             },
@@ -42,11 +51,6 @@ const customRoute = createBrowserRouter([
             {
                 path:"/tablets",
                 element:<Tablets/>,
-            },
-          
-            {
-                path:"/orders",
-                element:<Orders/>,
             },
             {
                 path:"/account",
@@ -81,8 +85,16 @@ const customRoute = createBrowserRouter([
                 element:<Orders/>,
             },
             {
-                path:"/store",
-                element:<Store/>,
+                path:"/addmobiles",
+                element:<Iphone/>,
+            },
+            {
+                path:"/addaccessories",
+                element:<AccList/>,
+            },
+            {
+                path:"/addtabs",
+                element:<AccTab/>,
             },
             {
                 path:'/addproducts',
@@ -91,7 +103,15 @@ const customRoute = createBrowserRouter([
             {
                 path:'/delete',
                 element:<Delete/>,
-            }
+            },
+            {
+                path:'/add',
+                element:<AddForm/>,
+            },
+            {
+                path:'/add',
+                element:<AddForm/>,
+            },
         ]
     },
     

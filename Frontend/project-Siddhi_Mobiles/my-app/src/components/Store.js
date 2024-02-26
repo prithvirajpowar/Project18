@@ -1,8 +1,11 @@
 import React from 'react'
 import '../Account.css';
 import { Link } from 'react-router-dom';
+import Header1 from './Header1';
 export default function Store() {
   return (
+    <>
+    <Header1></Header1>
     <div className="container d-flex justify-content-center align-items-center min-vh-100">
   <div className="row border rounded-5 p-3 bg-white shadow box-area">
     <div className="col-md-3 rounded-4 d-flex  flex-column left-box">
@@ -64,5 +67,6 @@ export default function Store() {
   </div>
 </div>
 
+    </>
   )
 }

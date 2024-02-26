@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "../Home.css";
-import Header2 from "./Header2";
-import { Link } from "react-router-dom";
-
+import Header1 from "./Header1";
 export default function Home() {
   const [products, setProducts] = useState([]);
 
@@ -30,7 +28,7 @@ export default function Home() {
 
   return (
     <>
-    <Header2></Header2>
+    <Header1></Header1>
     <div class="container-xl-fluid justify-content-center">
       <div className="row mt-2 mb-2border border-primary">
         <div id="carouselExample" class="carousel slide">
@@ -59,38 +57,38 @@ export default function Home() {
       <div className="row text-center">
         <h2 className="text-center heading1 mt-3 mb-3">Trending Categories</h2>
         <div class="col-xl-3">
-          <Link to='/addmobiles'><img
+          <img
             src="https://ssmobile.com/in/assets/img/category/4-4.png"
             className="i1 tc-category"
             alt=".."
-          /></Link>
+          />
           <h5>Mobiles</h5>
         </div>
 
         <div class="col-xl-3">
-        <Link to='/addtabs'><img
+          <img
             src="https://ssmobile.com/in/assets/img/category/3-3.png"
             className="i2 tc-category"
             alt=".."
-          /></Link>
-         <h5>Tablets</h5>
+          />
+          <h5>Tablets</h5>
         </div>
 
         <div class="col-xl-3">
-        <Link to='/addsmarttv'><img
+          <img
             src="https://ssmobile.com/in/assets/img/category/1-1_1.png"
             className="i3 tc-category"
             alt="..."
-          /></Link>
+          />
           <h5>Smart TVs</h5>
         </div>
 
         <div class="col-xl-3">
-        <Link to='/addaccessories'><img
+          <img
             src="https://ssmobile.com/in/assets/img/category/2-2.png"
             className="i4 tc-category"
             alt="..."
-          /></Link>
+          />
           <h5>Accessories</h5>
         </div>
       </div>
@@ -100,11 +98,11 @@ export default function Home() {
         {filterProductsByCategory(3).map((item) => (
           <div className="col-xl-3">
             <div className="card" c1>
-            <Link to='/addmobiles'><img
+              <img
                 src={getImagePath(item.image)}
                 class="card-img-top"
                 alt={item.name}
-              /></Link>
+              />
               <div className="card-body">
                 <h5 className="card-title">{item.name}</h5>
                 <p className="card-text">
