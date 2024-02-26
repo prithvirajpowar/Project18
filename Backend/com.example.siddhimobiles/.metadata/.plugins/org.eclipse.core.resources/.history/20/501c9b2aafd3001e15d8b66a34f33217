@@ -1,7 +1,0 @@
-package com.example.siddhimobiles.security;
-
-import org.springframework.security.config.annotation.web.WebSecurityConfigurer;
-
-public class WebSecurityConfig implements WebSecurityConfigurer<T> {
-
-}

@@ -87,9 +87,12 @@ export default function AddForm() {
               <label htmlFor="category_id" className="form-label">Category ID</label>
               <select className="form-select" name="category_id" required value={productData.category_id} onChange={handleInputChange}>
                 <option value="">Select Category</option>
-                <option value="1">Accessories</option>
-                <option value="2">Mobile</option>
-                <option value="3">TV</option>
+                <option value="1">Mobiles</option>
+                <option value="2">Tablets</option>
+                <option value="3">Accessories</option>
+                <option value="4">SmartTV</option>
+                <option value="5">Latest Product</option>
+                <option value="6">Popular Product</option>
               </select>
             </div>
 
@@ -99,7 +102,13 @@ export default function AddForm() {
                 <option value="">Select Supplier</option>
                 <option value="1">Samsung</option>
                 <option value="2">Apple</option>
-                <option value="3">Supplier 3</option>
+                <option value="3">Xiaomi</option>
+                <option value="4">Oneplus</option>
+                <option value="5">Vivo</option>
+                <option value="6">Oppo</option>
+                <option value="7">Boat</option>
+                <option value="8">Noise</option>
+                <option value="9">Realme</option>
               </select>
             </div>
 

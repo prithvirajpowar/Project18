@@ -95,7 +95,7 @@ export default function Home() {
 
       <div className="row text-center mt-5">
         <h2 className="text-start heading1">Latest Product</h2>
-        {filterProductsByCategory(3).map((item) => (
+        {filterProductsByCategory(5).map((item) => (
           <div className="col-xl-3">
             <div className="card" c1>
               <img
@@ -127,7 +127,7 @@ export default function Home() {
       <div className="row text-center mt-5">
         <h2 className="text-start heading1">Popular Product</h2>
         <div className="row">
-          {filterProductsByCategory(4).map((item) => (
+          {filterProductsByCategory(6).map((item) => (
             <div className="col-xl-3">
               <div className="card" c1>
                 <img

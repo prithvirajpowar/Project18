@@ -38,7 +38,7 @@ export default function Tablets() {
       </div>
 
       <div className="row text-center mt-5">
-        {filterProductsByCategory(6).map((item) => (
+        {filterProductsByCategory(2).map((item) => (
           <div className="col-xl-3">
             <div className="card" c1>
               <img

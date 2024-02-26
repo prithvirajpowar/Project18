@@ -38,7 +38,7 @@ export default function Home() {
       </div>
 
       <div className="row text-center mt-5">
-        {filterProductsByCategory(1).map((item) => (
+        {filterProductsByCategory(3).map((item) => (
           <div class="col-xl-3">
             <div className="card" c1>
               <img

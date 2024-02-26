@@ -37,7 +37,7 @@ export default function SmartTv () {
         />
       </div>
       <div className="row text-center mt-5">
-      {filterProductsByCategory(5).map((item) => (
+      {filterProductsByCategory(4).map((item) => (
         <div className="col-xl-3">
           <div className="card" c1>
             <img

@@ -1,8 +1,0 @@
-package com.example.siddhimobiles.entity;
-
-public class Role {
-	
-	    USER,
-	    ADMIN
-
-}

@@ -37,7 +37,7 @@ export default function Mobiles() {
         />
       </div>
       <div className="row text-center mt-5">
-        {filterProductsByCategory(2).map((item) => (
+        {filterProductsByCategory(1).map((item) => (
           <div className="col-xl-3">
             <div className="card" c1>
               <img
