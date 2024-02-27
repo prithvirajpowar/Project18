@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "../Home.css";
 import Header1 from "./Header1";
+import Footer from "./Footer";
+
 export default function Home() {
   const [products, setProducts] = useState([]);
 
@@ -57,7 +59,7 @@ export default function Home() {
       <div className="row text-center">
         <h2 className="text-center heading1 mt-3 mb-3">Trending Categories</h2>
         <div class="col-xl-3">
-          <img
+        <img
             src="https://ssmobile.com/in/assets/img/category/4-4.png"
             className="i1 tc-category"
             alt=".."
@@ -149,7 +151,7 @@ export default function Home() {
         </div>
       </div>
     </div>
-
+<Footer></Footer>
 
     </>
     );

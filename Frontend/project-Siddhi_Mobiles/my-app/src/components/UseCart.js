@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react';
 import Header1 from "./Header1";
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import Footer from './Footer';
 
-function Delete() {
+function AddCart() {
+    const [cart, setCart] = useState([]);
+
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -13,65 +14,74 @@ function Delete() {
 
   const fetchProducts = async () => {
     try {
-      const response = await axios.get('http://localhost:9540/allproducts');
+      const response = await axios.get('http://localhost:9540/product/{id}');
       setProducts(response.data);
     } catch (error) {
       console.error("There was an error fetching the products: ", error);
     }
   };
 
-  const deleteProduct = async (id) => {
-    try {
-      await axios.delete(`http://localhost:9540/product/${id}`);
-      fetchProducts(); 
-    } catch (error) {
-      console.error("There was an error deleting the product: ", error);
+  const addProduct = (product) => {
+    const isProductInCart = cart.find(item => item.id === product.id);
+    if (!isProductInCart) {
+      setCart([...cart, product]);
+    } else {
+      console.log("Product is already in the cart");
     }
   };
 
+  const handleClick = async (e) => {
+    e.preventDefault();
+  
+    if (cart.length === 0) {
+      alert("Your cart is empty.");
+      return;
+    }
+  
+    try {
+      const response = await axios.post('http://localhost:9540/orders', {
+        products: cart.map(item => item.id), 
+      });
+      console.log("Order placed successfully", response.data);
+      setCart([]); 
+    } catch (error) {
+      console.error("There was an error placing the order: ", error);
+    }
+  };
+  
+  
   return (
     <>
     <Header1></Header1>
-    <div className="container">
+      <div className="container">
         <div style={{ color: "rgb(4, 4, 10)", textAlign: "center" }}>
           <h1>List Of Product</h1>
-          <Link to='/add'><button type='submit'  className="btn btn-success">Add Products</button></Link>
         </div>
 
         <div className="col-10 row mb-5" style={{ paddingLeft: "15%" }}>
           <table className="table table-bordered">
             <thead className="table-dark">
               <tr>
-                <th scope="col">Images</th>
                 <th scope="col">Names</th>
                 <th scope="col">Description</th>
                 <th scope="col">Price</th>
-                <th scope="col">Delete Product</th>
               </tr>
             </thead>
             <tbody>
               {products.map((product) => (
                 <tr key={product.id}>
-                  <td><img src={product.image} alt={product.name} style={{ width: '100px' }} /></td>
                   <td>{product.name}</td>
                   <td>{product.description}</td>
                   <td>₹{product.price}</td>
-                  <td>
-                    <button
-                      className="btn btn-danger"
-                      onClick={() => deleteProduct(product.id)}
-                    >
-                      Delete
-                    </button>
-                  </td>
                 </tr>
               ))}
             </tbody>
           </table>
+          <button className='btn btn-success' onClick={handleClick}>Place Order</button>
         </div>
       </div>
     </>
   );
 }
 
-export default Delete;
+export default AddCart;

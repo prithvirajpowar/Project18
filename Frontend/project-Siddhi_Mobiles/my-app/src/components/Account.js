@@ -2,6 +2,7 @@ import React from 'react'
 import '../Account.css';
 import { Link } from 'react-router-dom';
 import Header1 from './Header1';
+import Footer from './Footer';
 
 export default function Account() {
   return (
@@ -14,13 +15,13 @@ export default function Account() {
         <div className="col-md-3">
           <div
             className="card side-bar"
-            style={{ width: "13rem", border: "none" }}
+            style={{ width: "13rem", border: "none", height: "20rem" }}
           >
             <img
               src="images/logo.jpg"
               className="card-img-top"
               alt="..."
-              style={{ width: 225 }}
+              style={{ width: 200 }}
             />
             <ul className="list-group list-group-flush">
             <Link to='/dashboard'><li className="list-group-item">Dashboard</li></Link>
@@ -67,7 +68,7 @@ export default function Account() {
     </div>
   </div>
 </div>
-
+<Footer></Footer>
     </>
   )
 }

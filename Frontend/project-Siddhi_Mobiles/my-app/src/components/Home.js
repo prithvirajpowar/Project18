@@ -3,6 +3,7 @@ import axios from "axios";
 import "../Home.css";
 import Header2 from "./Header2";
 import { Link } from "react-router-dom";
+import Footer from "./Footer";
 
 export default function Home() {
   const [products, setProducts] = useState([]);
@@ -59,7 +60,7 @@ export default function Home() {
       <div className="row text-center">
         <h2 className="text-center heading1 mt-3 mb-3">Trending Categories</h2>
         <div class="col-xl-3">
-          <Link to='/addmobiles'><img
+          <Link to='/mobiles'><img
             src="https://ssmobile.com/in/assets/img/category/4-4.png"
             className="i1 tc-category"
             alt=".."
@@ -68,7 +69,7 @@ export default function Home() {
         </div>
 
         <div class="col-xl-3">
-        <Link to='/addtabs'><img
+        <Link to='/tablets'><img
             src="https://ssmobile.com/in/assets/img/category/3-3.png"
             className="i2 tc-category"
             alt=".."
@@ -77,7 +78,7 @@ export default function Home() {
         </div>
 
         <div class="col-xl-3">
-        <Link to='/addsmarttv'><img
+        <Link to='/smarttv'><img
             src="https://ssmobile.com/in/assets/img/category/1-1_1.png"
             className="i3 tc-category"
             alt="..."
@@ -86,7 +87,7 @@ export default function Home() {
         </div>
 
         <div class="col-xl-3">
-        <Link to='/addaccessories'><img
+        <Link to='/accessories'><img
             src="https://ssmobile.com/in/assets/img/category/2-2.png"
             className="i4 tc-category"
             alt="..."
@@ -100,11 +101,11 @@ export default function Home() {
         {filterProductsByCategory(5).map((item) => (
           <div className="col-xl-3">
             <div className="card" c1>
-            <Link to='/addmobiles'><img
+            <img
                 src={getImagePath(item.image)}
                 class="card-img-top"
                 alt={item.name}
-              /></Link>
+              />
               <div className="card-body">
                 <h5 className="card-title">{item.name}</h5>
                 <p className="card-text">
@@ -151,7 +152,7 @@ export default function Home() {
         </div>
       </div>
     </div>
-
+<Footer></Footer>
 
     </>
     );

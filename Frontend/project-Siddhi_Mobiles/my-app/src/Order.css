@@ -8,8 +8,10 @@ body{
 /*------------ Login container ------------*/
 
 .container{
+    padding-top: 30px ;
+
     width: 930px;
-    height:550px;
+    height:525px;
 }
 
 .left-box{

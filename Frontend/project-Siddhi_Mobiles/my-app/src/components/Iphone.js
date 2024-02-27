@@ -5,7 +5,7 @@ export default function Iphone() {
   return (
       <>
        <Header2></Header2>
-       <div className="container " />
+       
         <div
           style={{
             boxShadow: "2cm",

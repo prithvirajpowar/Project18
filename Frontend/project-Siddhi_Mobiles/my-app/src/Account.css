@@ -9,13 +9,14 @@ body{
 
 .box-area
 {
+    padding-top: 30px ;
     width: 930px;
-    height: 500px;
+    height: 525px;
 }
 
 .left-box{
     flex-basis: 20% !important;
-    padding-bottom: 40px
+    padding-bottom: 40px;
 
 }
 

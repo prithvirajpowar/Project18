@@ -29,17 +29,14 @@ const SignIn = () => {
         navigate('/home');
         window.location.reload();
       } else if (role === 'ADMIN'){
-        Cookies.set('isAdmin', true);
-        Cookies.set('authenticated', true);
+        Cookies.set('isAdmin', true, { expires: 7 });
+        Cookies.set('authenticated', true, { expires: 7 });
         navigate('/delete');
         window.location.reload();
       }else{
         alert(response.status);
       }
-      // Cookies.set('Role', role, { expires: 7 });
-      // Cookies.set('Authenticated', 'true', { expires: 7 });
-
-      // navigate('/home');
+      
     } catch (error) {
       console.error('Error occurred:', error);
       setErrors(prev => ({ ...prev, form: "Incorrect username or password" }));

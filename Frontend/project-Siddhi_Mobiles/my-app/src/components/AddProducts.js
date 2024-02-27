@@ -1,4 +1,5 @@
 import React from 'react'
+import Footer from './Footer'
 
 function AddProducts() {
   return (
@@ -54,7 +55,7 @@ function AddProducts() {
         </tbody>
       </table>
     </div>
- 
+ <Footer></Footer>
 </>
     
   )

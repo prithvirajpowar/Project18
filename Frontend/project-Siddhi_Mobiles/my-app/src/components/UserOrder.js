@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import Footer from './Footer';
 import Header1 from './Header1';
 
 const OrdersPage = () => {
@@ -64,6 +65,7 @@ const OrdersPage = () => {
         <p>No orders found.</p>
       )}
     </div>
+    <Footer></Footer>
     </>
   );
 };

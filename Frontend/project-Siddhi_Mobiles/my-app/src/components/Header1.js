@@ -20,11 +20,7 @@ function Header1() {
 						Dashboard
 					</Link>
 				</li>
-				<li className="nav-item">
-					<Link className="nav-link active" to="/delivery">
-						Delivery
-					</Link>
-				</li>
+				
 				<li className="nav-item">
 					<Link className="nav-link active" to="/orders">
 						Orders

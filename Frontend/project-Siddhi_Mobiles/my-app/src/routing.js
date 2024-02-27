@@ -12,9 +12,7 @@ import Account from "./components/Account";
 import SignUp from "./components/SignUp";
 import SignIn from "./components/SignIn";
 
-import Delivery from "./components/Delivery";
 import Dashboard from "./components/Dashboard";
-import Inventory from "./components/Inventory";
 import Iphone from "./components/Iphone";
 import Delete from "./components/Delete";
 import AddProducts from "./components/AddProducts";
@@ -22,6 +20,8 @@ import AddForm from "./components/AddForm";
 
 import AccList from "./components/AccList";
 import AccTab from "./components/AccTab";
+import AddCart from "./components/UseCart";
+import UserOrder from "./components/UserOrder";
 
 const customRoute = createBrowserRouter([
     {
@@ -73,14 +73,6 @@ const customRoute = createBrowserRouter([
                 element:<Dashboard/>,
             },
             {
-                path:"/inventory",
-                element:<Inventory/>,
-            },
-            {
-                path:"/delivery",
-                element:<Delivery/>,
-            },
-            {
                 path:"/orders",
                 element:<Orders/>,
             },
@@ -109,9 +101,14 @@ const customRoute = createBrowserRouter([
                 element:<AddForm/>,
             },
             {
-                path:'/add',
-                element:<AddForm/>,
+                path:'/cart',
+                element:<AddCart/>,
             },
+            {
+                path:'/userorders',
+                element:<UserOrder/>,
+            }
+           
         ]
     },
     

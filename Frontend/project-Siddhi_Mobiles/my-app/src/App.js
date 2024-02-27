@@ -9,7 +9,6 @@ function App() {
     {/* <Header></Header> */}
     
     <Outlet></Outlet> 
-    <Footer></Footer>
     </>
   );
 }

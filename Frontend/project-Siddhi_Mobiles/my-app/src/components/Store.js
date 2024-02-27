@@ -2,6 +2,7 @@ import React from 'react'
 import '../Account.css';
 import { Link } from 'react-router-dom';
 import Header1 from './Header1';
+import Footer from './Footer';
 export default function Store() {
   return (
     <>
@@ -66,7 +67,7 @@ export default function Store() {
     </div>
   </div>
 </div>
-
+<Footer></Footer>
     </>
   )
 }

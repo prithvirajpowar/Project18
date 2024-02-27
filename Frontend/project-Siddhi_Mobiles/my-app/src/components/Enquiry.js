@@ -1,9 +1,10 @@
 import React from 'react'
 import '../Enquiry.css';
 import { Link } from 'react-router-dom';
+import Footer from './Footer';
 function Enquiry() {
   return (
-    <div>
+    <>
       <div className="container mt-5">
     <h2 className="text-center">Mobile Distributor Enquiry</h2>
     <form>
@@ -73,8 +74,8 @@ function Enquiry() {
       </button>
     </form>
   </div>
-
-    </div>
+<Footer></Footer>
+    </>
   )
 }
 export default Enquiry
