@@ -31,7 +31,7 @@ const SignIn = () => {
       } else if (role === 'ADMIN'){
         Cookies.set('isAdmin', true, { expires: 7 });
         Cookies.set('authenticated', true, { expires: 7 });
-        navigate('/delete');
+        navigate('/home1');
         window.location.reload();
       }else{
         alert(response.status);
@@ -39,7 +39,10 @@ const SignIn = () => {
       
     } catch (error) {
       console.error('Error occurred:', error);
-      setErrors(prev => ({ ...prev, form: "Incorrect username or password" }));
+      if(mail === null || mail === ""){
+        alert("Email and password is require");
+      }else{
+      setErrors(prev => ({ ...prev, form: "Incorrect username or password" }));}
     }
   };
 

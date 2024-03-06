@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Header2 from "./Header2";
 import Footer from "./Footer";
+import { Link } from 'react-router-dom'
+
 
 export default function Mobiles() {
   const [products, setProducts] = useState([]);
@@ -75,9 +77,10 @@ export default function Mobiles() {
                   className="form-control mb-2"
                   style={{ width: "60%", margin: "0 auto" }}
                 />
+                <Link to='/thankyou'>
                 <button className="btn btn-danger w-75" onClick={() => placeOrder(item)}>
                   Place Order
-                </button>
+                </button></Link>
               </div>
             </div>
           </div>

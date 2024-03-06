@@ -30,12 +30,12 @@ const OrdersPage = () => {
     <>
     <Header1></Header1>
     <div className="container mt-5">
-      <h1 className="mb-3">Orders</h1>
+      <h1 className="mb-3 text-center">Orders</h1>
       {orders.length > 0 ? (
-        <table className="table">
-          <thead className="thead-dark">
+        <table className="table table-bordered">
+          <thead className="border border-secondary, table-dark">
             <tr>
-              <th>Order #</th>
+              <th>Order Id</th>
               <th>Date</th>
               <th>Status</th>
               <th>Total Price</th>

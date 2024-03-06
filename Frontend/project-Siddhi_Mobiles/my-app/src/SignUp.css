@@ -8,9 +8,11 @@ body{
 /*------------ Login container ------------*/
 
 .container{
+    padding-top: 25px;
     padding-bottom: 80px;
     width: 900px;
 }
+
 
 
 /*------------ Right box ------------*/
@@ -21,7 +23,7 @@ body{
     background-image: linear-gradient(to bottom right, white, lightgrey, grey);
     border-radius: 10px;
     text-align: center;
-    height: 75vh;
+    height: 90vh;
     width: 400px;
 }
 

@@ -3,6 +3,7 @@ import '../SignUp.css';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import bcrypt from 'bcryptjs'; // Import bcryptjs instead of bcrypt
 
 export default function SignUp() {
   const [formData, setFormData] = useState({
@@ -43,23 +44,33 @@ export default function SignUp() {
     return newErrors;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const newErrors = validateForm();
     if (Object.keys(newErrors).length === 0) {
-      axios.post('http://localhost:9540/regUser', formData)
-        .then(response => {
-          alert('User registered successfully');
-          console.log('Form submitted successfully:', response.data);
-          navigate('/signin'); 
-        })
-        .catch(error => {
-          alert('There was an error submitting the form');
-          console.error('There was an error submitting the form:', error);
-          if (error.response && error.response.data) {
-            setErrors({ form: error.response.data.message });
-          }
-        });
+      try {
+        // Hash the password using bcryptjs
+        const hashedPassword = await bcrypt.hash(formData.password, 10);
+
+        // Update the form data with the hashed password
+        const formDataWithHashedPassword = {
+          ...formData,
+          password: hashedPassword
+        };
+
+        // Send the hashed password to the server
+        const response = await axios.post('http://localhost:9540/regUser', formDataWithHashedPassword);
+        
+        alert('User registered successfully');
+        console.log('Form submitted successfully:', response.data);
+        navigate('/signin');
+      } catch (error) {
+        alert('There was an error submitting the form');
+        console.error('There was an error submitting the form:', error);
+        if (error.response && error.response.data) {
+          setErrors({ form: error.response.data.message });
+        }
+      }
     } else {
       setErrors(newErrors);
     }

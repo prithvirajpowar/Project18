@@ -23,6 +23,9 @@ import AccTab from "./components/AccTab";
 import AddCart from "./components/UseCart";
 import UserOrder from "./components/UserOrder";
 
+import Thankyou from "./components/Thankyou";
+import Qr from "./components/Qr";
+
 const customRoute = createBrowserRouter([
     {
         path:"/",
@@ -107,6 +110,14 @@ const customRoute = createBrowserRouter([
             {
                 path:'/userorders',
                 element:<UserOrder/>,
+            },
+            {
+                path:'/thankyou',
+                element:<Thankyou/>,
+            },
+            {
+                path:'/qr',
+                element:<Qr/>,
             }
            
         ]
